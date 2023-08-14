@@ -2,7 +2,9 @@ package fr.eni.demojpa.bo;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 
+import org.hibernate.annotations.ManyToAny;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -12,6 +14,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Past;
@@ -44,8 +47,8 @@ public class Client implements Serializable {
 			)	
 	private String lastname;
 	
-	@OneToOne(cascade = CascadeType.ALL)	
-	private Address address;
+	@ManyToMany(cascade = CascadeType.ALL)	
+	private List<Address> address;
 	//@Pattern(regex="", flag="", message="")
 	@Column(length = 10)
 	@Length(

@@ -29,8 +29,5 @@ public class Address implements Serializable {
 	private String ville;
 	@Column(length = 5)	
 	private String cp;
-	@OneToOne(mappedBy = "address")
-	@ToString.Exclude
-	private Client client;
 	
 }

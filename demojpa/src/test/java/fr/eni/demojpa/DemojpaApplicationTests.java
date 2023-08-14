@@ -60,9 +60,9 @@ class DemojpaApplicationTests {
 	void testerajoutCommentOneToMany() {
 		IdArticle idA = new IdArticle("Samsung S21", "adel");
 		Article article = entityManager.find(Article.class, idA);
-		System.out.println(article);
-		Comment comment = new  Comment(null, "alblablaalb", "Steve");
-		article.addComment(comment);
+		System.out.println(article.getComments().get(0));
+		Comment cm = article.getComments().get(0);
+		article.removeComment(cm);
 		entityManager.persist(article);
 		System.out.println(article);
 	}
