@@ -57,6 +57,7 @@ public class Client implements Serializable {
 			)	
 	private String tel;
 	@Past(message = "La date de naissance doit être dans le passé")	
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private LocalDate bday;
 	
 }

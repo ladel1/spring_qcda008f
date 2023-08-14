@@ -14,7 +14,7 @@
     			<h1>Ajouter un client</h1>
     		</div>
     		<div class="col-8 offset-2 mt-5">    		
-	    		<form method="POST" th:action="@{/client/ajouter}" th:object="${client}" >
+	    		<form method="POST" th:action="@{/clients/ajouter}" th:object="${client}" >
 	    			<div class="mb-3">
 					  <label for="firstname" class="form-label">Prénom</label>
 					  <input type="text" class="form-control" id="firstname" th:field="*{firstname}" >
@@ -27,18 +27,38 @@
 	    			<div class="mb-3">
 					  <label for="lastname" class="form-label">Nom</label>
 					  <input type="text" class="form-control" id="lastname" th:field="*{lastname}" >
+					  <div class="text-danger" th:if="${#fields.hasErrors('lastname')}" >
+					  	<ul>
+					  		<li th:each="error: ${#fields.errors('lastname')}" th:text="${error}" ></li>
+					  	</ul>
+					  </div>					  
 					</div>
 	    			<div class="mb-3">
 					  <label for="address" class="form-label">Adresse</label>
 					  <input type="text" class="form-control" id="address" th:field="*{address}" >
+					  <div class="text-danger" th:if="${#fields.hasErrors('address')}" >
+					  	<ul>
+					  		<li th:each="error: ${#fields.errors('address')}" th:text="${error}" ></li>
+					  	</ul>
+					  </div>					  
 					</div>
 	    			<div class="mb-3">
 					  <label for="tel" class="form-label">Tel</label>
 					  <input type="tel" class="form-control" id="tel" th:field="*{tel}" >
+					  <div class="text-danger" th:if="${#fields.hasErrors('tel')}" >
+					  	<ul>
+					  		<li th:each="error: ${#fields.errors('tel')}" th:text="${error}" ></li>
+					  	</ul>
+					  </div>					  
 					</div>
 	    			<div class="mb-3">
 					  <label for="bday" class="form-label">Date de naissance</label>
 					  <input type="date" class="form-control" id="bday" th:field="*{bday}"  >
+					  <div class="text-danger" th:if="${#fields.hasErrors('bday')}" >
+					  	<ul>
+					  		<li th:each="error: ${#fields.errors('bday')}" th:text="${error}" ></li>
+					  	</ul>
+					  </div>					  
 					</div>
 					<div class="mb-3">
 						<button class="btn btn-primary" type="submit" >Ajouter</button>

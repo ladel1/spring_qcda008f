@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import fr.eni.demojpa.bll.ClientService;
@@ -18,13 +19,13 @@ public class ClientController {
 	@Autowired
 	private ClientService clientService;
 	
-	@GetMapping({"/"})
+	@GetMapping({"/","/clients/ajouter"})
 	public String displayAddClient(Model model) {
 		model.addAttribute("client",new Client());
 		return "client/add";
 	}
 	
-	@PostMapping({"/client/ajouter"})
+	@PostMapping({"/clients/ajouter"})
 	public String addClient( 
 			@Valid @ModelAttribute Client client, 
 			BindingResult br 
@@ -37,12 +38,16 @@ public class ClientController {
 		}
 	
 	
-	
-	public String detailsClient() {
-		return "";
+	@GetMapping("/clients/details/{id:[0-9]+}")
+	public String detailsClient(@PathVariable Integer id, Model model) {
+		model.addAttribute("client", clientService.findOne(id));
+		return "client/details";
 	}
-	public String listClients() {
-		return "";
+	
+	@GetMapping({"/clients"})
+	public String listClients(Model model ) {
+		model.addAttribute("clients",clientService.findAll());
+		return "client/index";
 	}
 	
 	
