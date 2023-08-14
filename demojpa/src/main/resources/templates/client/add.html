@@ -18,6 +18,11 @@
 	    			<div class="mb-3">
 					  <label for="firstname" class="form-label">Prénom</label>
 					  <input type="text" class="form-control" id="firstname" th:field="*{firstname}" >
+					  <div class="text-danger" th:if="${#fields.hasErrors('firstname')}" >
+					  	<ul>
+					  		<li th:each="error: ${#fields.errors('firstname')}" th:text="${error}" ></li>
+					  	</ul>
+					  </div>
 					</div>
 	    			<div class="mb-3">
 					  <label for="lastname" class="form-label">Nom</label>
@@ -33,7 +38,7 @@
 					</div>
 	    			<div class="mb-3">
 					  <label for="bday" class="form-label">Date de naissance</label>
-					  <input type="date" class="form-control" id="bday" th:field="*{bday}" >
+					  <input type="date" class="form-control" id="bday" th:field="*{bday}"  >
 					</div>
 					<div class="mb-3">
 						<button class="btn btn-primary" type="submit" >Ajouter</button>
