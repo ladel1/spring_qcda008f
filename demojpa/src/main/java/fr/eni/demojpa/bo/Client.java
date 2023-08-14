@@ -6,11 +6,13 @@ import java.time.LocalDate;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Past;
 import lombok.AllArgsConstructor;
@@ -41,13 +43,9 @@ public class Client implements Serializable {
 			message="Le champs Nom doit être entre 2 et 30 caractères"
 			)	
 	private String lastname;
-	@Column(length = 60)
-	@Length(
-			min=5,
-			max=60,
-			message="Le champs Adresse doit être entre 5 et 60 caractères"
-			)	
-	private String address;
+	
+	@OneToOne(cascade = CascadeType.ALL)	
+	private Address address;
 	//@Pattern(regex="", flag="", message="")
 	@Column(length = 10)
 	@Length(
