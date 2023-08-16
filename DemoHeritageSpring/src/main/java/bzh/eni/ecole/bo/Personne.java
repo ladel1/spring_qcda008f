@@ -24,14 +24,17 @@ import lombok.NoArgsConstructor;
 })
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Entity
-@DiscriminatorColumn(name = "type")
-@DiscriminatorValue(value = "Pers")
 @Data @AllArgsConstructor @NoArgsConstructor
 public class Personne implements Serializable{
 
 	private static final long serialVersionUID = 1L;
+	// Création un sequence commence de 1 et il s'incremente par 1 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@SequenceGenerator(name = "mon_sequence",
+					   allocationSize = 1,
+					   initialValue = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,
+			        generator = "mon_sequence")
 	private Integer id;
 	private String prenom;
 	private String nom;

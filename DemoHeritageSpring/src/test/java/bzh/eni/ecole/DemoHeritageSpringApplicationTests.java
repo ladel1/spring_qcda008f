@@ -28,23 +28,23 @@ class DemoHeritageSpringApplicationTests {
 	@Rollback(false)
 	@Test
 	void testHeritage() {
-//		Personne m1 = new Personne();
-//		m1.setNom("Dupont");
-//		m1.setPrenom("Eric");
-//		m1.setAdresse("bbbb");
-//		em.persist(m1);
-		for(int i=1;i<60;i++) {			
-			Personne m2 = new Personne();
-			m2.setNom("Maisel "+i);
-			m2.setPrenom("pierre "+i);
-			m2.setAdresse("bbbb "+i);
-			em.persist(m2);
-		}
-//		Personne m3 = new Personne();
-//		m3.setNom("Delor");
-//		m3.setPrenom("Lucas");
-//		m3.setAdresse("bbbb");
-//		em.persist(m3);
+		Personne m1 = new Personne();
+		m1.setNom("Dupont");
+		m1.setPrenom("Eric");
+		m1.setAdresse("bbbb");
+		em.persist(m1);
+				
+		Personne m2 = new Personne();
+		m2.setNom("Maisel ");
+		m2.setPrenom("pierre ");
+		m2.setAdresse("bbbb ");
+		em.persist(m2);
+	
+		Personne m3 = new Personne();
+		m3.setNom("Delor");
+		m3.setPrenom("Lucas");
+		m3.setAdresse("bbbb");
+		em.persist(m3);
 	}
 
 //	@Test
