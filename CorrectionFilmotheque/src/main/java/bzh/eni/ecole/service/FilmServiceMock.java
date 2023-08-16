@@ -16,6 +16,7 @@ public class FilmServiceMock implements FilmService {
 	List<Genre> lstGenres = new ArrayList<Genre>();
 	List<Participant> lstParticipants = new ArrayList<Participant>();
 	
+	
 	@Override
 	public List<Film> getAllFilms() {
 		// TODO Auto-generated method stub
@@ -24,7 +25,10 @@ public class FilmServiceMock implements FilmService {
 
 	@Override
 	public Film getFilmById(Long id) {
-		// TODO Auto-generated method stub
+		for (Film film : lstFilms) {
+			if(film.getId()==id)
+				return film;
+		}
 		return null;
 	}
 
