@@ -7,7 +7,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@DiscriminatorValue(value = "m")
 @Data @AllArgsConstructor @NoArgsConstructor
 public class Medecin extends Personne {
 	

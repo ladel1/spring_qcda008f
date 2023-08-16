@@ -11,21 +11,20 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
-import jakarta.persistence.Table;
+import jakarta.persistence.SequenceGenerator;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity @Table(name = "personnes")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "type")
-@DiscriminatorValue(value = "pers")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Entity
 @Data @AllArgsConstructor @NoArgsConstructor
 public class Personne implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@SequenceGenerator(name = "personne_sequence",allocationSize = 1)
 	private Integer id;
 	private String prenom;
 	private String nom;
