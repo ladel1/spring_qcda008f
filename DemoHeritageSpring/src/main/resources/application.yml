@@ -1,12 +1,12 @@
 spring:
  datasource:
-  url: jdbc:sqlserver://localhost:1433;databaseName=CLIENT_JPA_DB;encrypt=false
+  url: jdbc:sqlserver://localhost:1433;databaseName=HERITAGE_JPA_DB;encrypt=false
   username: sa
   password: Pa$$w0rd
   driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
  jpa: 
   hibernate:
-   ddl-auto: create-drop
+   ddl-auto: update
   show-sql: true
   properties:
    hibernate: 
