@@ -18,13 +18,14 @@ import lombok.NoArgsConstructor;
 
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Entity
+@DiscriminatorColumn(name = "type")
+@DiscriminatorValue(value = "Pers")
 @Data @AllArgsConstructor @NoArgsConstructor
 public class Personne implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@SequenceGenerator(name = "personne_sequence",allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Integer id;
 	private String prenom;
 	private String nom;

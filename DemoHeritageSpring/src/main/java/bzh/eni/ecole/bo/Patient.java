@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
+@DiscriminatorValue(value = "p")
 @Data @AllArgsConstructor @NoArgsConstructor
 public class Patient extends Personne {
 	private String nss;
