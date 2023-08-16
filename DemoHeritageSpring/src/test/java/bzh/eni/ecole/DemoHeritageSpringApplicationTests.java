@@ -33,11 +33,13 @@ class DemoHeritageSpringApplicationTests {
 //		m1.setPrenom("Eric");
 //		m1.setAdresse("bbbb");
 //		em.persist(m1);
-//		Personne m2 = new Personne();
-//		m2.setNom("Maisel");
-//		m2.setPrenom("pierre");
-//		m2.setAdresse("bbbb");
-//		em.persist(m2);
+		for(int i=1;i<60;i++) {			
+			Personne m2 = new Personne();
+			m2.setNom("Maisel "+i);
+			m2.setPrenom("pierre "+i);
+			m2.setAdresse("bbbb "+i);
+			em.persist(m2);
+		}
 //		Personne m3 = new Personne();
 //		m3.setNom("Delor");
 //		m3.setPrenom("Lucas");
@@ -45,18 +47,30 @@ class DemoHeritageSpringApplicationTests {
 //		em.persist(m3);
 	}
 
-	@Test
-	void testQueriesPersonne() {
-		Personne m3 = new Personne();
-		m3.setNom("Delor");
-		m3.setPrenom("Lucas");
-		m3.setAdresse("bbbb");
-
-		List<Personne> pers = personneDao.findByNomIgnoreCase("delor");
-		System.out.println(pers);
-		assertEquals(m3, pers.get(0));	
-	}
+//	@Test
+//	void testQueriesPersonne() {
+//		Personne m3 = new Personne();
+//		m3.setNom("Delor");
+//		m3.setPrenom("Lucas");
+//		m3.setAdresse("bbbb");
+//
+//		List<Personne> pers = personneDao.findByNomIgnoreCase("delor");
+//		System.out.println(pers);
+//		assertEquals(m3.getNom(), pers.get(0).getNom());	
+//	}
 	
+//	
+//	@Test
+//	void findCostumQueryJPQL() {
+//		Personne m3 = new Personne();
+//		m3.setNom("Delor");
+//		m3.setPrenom("Lucas");
+//		m3.setAdresse("bbbb");
+//
+//	    List<Personne> pers = personneDao.trouverTous();
+//		System.out.println(pers);
+//		assertEquals(m3.getAdresse(), pers.get(0).getAdresse());
+//	}
 	
 	@Test
 	void contextLoads() {

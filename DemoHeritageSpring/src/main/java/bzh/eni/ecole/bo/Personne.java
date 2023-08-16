@@ -11,11 +11,17 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
+import jakarta.persistence.NamedQueries;
+import jakarta.persistence.NamedQuery;
 import jakarta.persistence.SequenceGenerator;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@NamedQueries({
+	@NamedQuery(name = "Personne.trouverTous",query = "SELECT p FROM Personne p"),
+	@NamedQuery(name = "trouverUn",query = "SELECT p FROM Personne p WHERE p.id = :id")
+})
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Entity
 @DiscriminatorColumn(name = "type")

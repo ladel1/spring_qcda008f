@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <title>Détails du film</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <header></header>
+        <main>
+           <div class="row text-center">
+            <h1>Détails du film</h1>
+           </div>             
+           <div class="row col-6 offset-3">
+              <div class="mb-3">
+                <label for="titre" class="form-label">Titre</label>
+                <input type="text" class="form-control" id="titre" >
+              </div>
+              <div class="mb-3">
+                <label for="annee" class="form-label">Année</label>
+                <input type="text" class="form-control" id="annee" >
+              </div> 
+              <div class="mb-3">
+                <label for="duree" class="form-label">Durée</label>
+                <input type="text" class="form-control" id="duree" >
+              </div>   
+              <div class="mb-3">
+                <label for="synopsis" class="form-label">Synopsis</label>
+                <textarea id="synopsis" class="form-control" rows="3" ></textarea>
+              </div>  
+              <div class="mb-3">
+                <label for="genre" class="form-label">Genre</label>
+                <input type="text" class="form-control" id="genre" />
+              </div> 
+              <div class="mb-3">
+                <label for="realisateur" class="form-label">Réalisateur</label>
+                <input type="text" class="form-control" id="realisateur" />
+              </div>  
+              <div class="mb-3">
+                <label for="acteurs" class="form-label">Acteurs</label>
+                <select id="acteurs" class="form-control" multiple >
+                </select>
+              </div>                                                                                    
+           </div>
+        </main>
+        <footer></footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+</html>
