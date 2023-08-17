@@ -35,20 +35,29 @@
               </div>  
               <div class="mb-3">
                 <label for="genre" class="form-label">Genre</label>
-                <select class="form-control" id="genre"  th:field="*{genre}" >
-                    <!-- la liste genres -->
+                <select class="form-select"  id="genre"  th:field="*{genre}" >
+                    <option th:each="genre : ${genres}" 
+                            th:value="${genre.id}" 
+                            th:text="${genre.libelle}">
+                    </option>
                 </select> 
               </div> 
               <div class="mb-3">
                 <label for="realisateur" class="form-label">Réalisateur</label>
-                <select  class="form-control" id="realisateur" th:field="*{realisateur}" >
-                    <!-- liste participants -->
+                <select  class="form-select"  id="realisateur" th:field="*{realisateur}" >
+                  <option th:each="participant : ${participants}"                   
+                  th:value="${participant.id}" 
+                  th:text="${participant.nom+' '+participant.prenom}">
+                  </option>
                 </select>  
               </div>  
               <div class="mb-3">
                 <label for="acteurs" class="form-label">Acteurs</label>
-                <select id="acteurs" class="form-control" multiple th:field="*{acteurs}" >
-                    <!-- liste participants -->
+                <select id="acteurs" class="form-select"  multiple th:field="*{acteurs}" >
+                  <option th:each="participant : ${participants}"                   
+                  th:value="${participant.id}" 
+                  th:text="${participant.nom+' '+participant.prenom}">
+                  </option>
                 </select>
               </div>                                                                                    
             </form>

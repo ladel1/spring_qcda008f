@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import bzh.eni.ecole.bo.Film;
 import bzh.eni.ecole.bo.Genre;
@@ -47,5 +48,37 @@ public class FilmController {
 		model.addAttribute("films",filmService.getAllFilms());
 		return "/film/liste";
 	}	
+	
+	@GetMapping("/films/ajouter")
+	public String afficherForm(Model model ) {
+		model.addAttribute("film",new Film());
+		model.addAttribute("participants",filmService.getParticipants());
+		model.addAttribute("genres",filmService.getGenres());
+		return "film/add";
+	}
+	@PostMapping("/films/ajouter")
+	public String tairterForm() {
+		
+		return "redirect:/films";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }
