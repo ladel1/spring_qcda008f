@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -15,6 +17,7 @@ import bzh.eni.ecole.bo.Genre;
 import bzh.eni.ecole.bo.Participant;
 import bzh.eni.ecole.service.FilmService;
 import jakarta.annotation.PostConstruct;
+import jakarta.validation.Valid;
 
 @Controller
 public class FilmController {
@@ -57,8 +60,15 @@ public class FilmController {
 		return "film/add";
 	}
 	@PostMapping("/films/ajouter")
-	public String tairterForm() {
+	public String tairterForm(
+			@Valid @ModelAttribute Film film,
+			BindingResult br
+			) {
 		
+		if(br.hasErrors()) {
+			return "film/add";
+		}
+		filmService.saveFilm(film);
 		return "redirect:/films";
 	}
 	
