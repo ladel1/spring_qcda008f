@@ -11,6 +11,7 @@ import bzh.eni.ecole.bo.Participant;
 import bzh.eni.ecole.repository.FilmRepository;
 import bzh.eni.ecole.repository.GenreRepository;
 import bzh.eni.ecole.repository.ParticipantRepository;
+import jakarta.validation.Valid;
 
 @Service("JPA")
 public class FilmServiceImpl implements FilmService {
@@ -53,6 +54,16 @@ public class FilmServiceImpl implements FilmService {
 	public void saveFilm(Film film) {
 		System.out.println("JPA Save Film");
 		filmRepository.save(film);		
+	}
+
+	@Override
+	public void saveParticipant(@Valid Participant participant) {
+		participantRepository.save(participant);
+	}
+
+	@Override
+	public void saveGenre(@Valid Genre genre) {
+		genreRepository.save(genre);
 	}
 
 }

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import bzh.eni.ecole.bo.Film;
 import bzh.eni.ecole.bo.Genre;
 import bzh.eni.ecole.bo.Participant;
+import jakarta.validation.Valid;
 
 @Service("MOCK")
 public class FilmServiceMock implements FilmService {
@@ -59,6 +60,18 @@ public class FilmServiceMock implements FilmService {
 	@Override
 	public void saveFilm(Film film) {
 		lstFilms.add(film);
+	}
+
+	@Override
+	public void saveParticipant(@Valid Participant participant) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void saveGenre(@Valid Genre genre) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
