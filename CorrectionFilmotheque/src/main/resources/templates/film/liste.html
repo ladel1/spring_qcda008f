@@ -31,7 +31,7 @@
                         <tr th:each="film: ${films}" th:object="${film}" >
                             <td th:text="*{id}" ></td>
                             <td th:text="*{titre}" ></td>
-                            <td th:text="*{genre}" ></td>
+                            <td th:text="*{genre.libelle}" ></td>
                             <td th:text="*{duree}" ></td>
                             <td th:text="*{realisateur.prenom+' '+realisateur.nom}" ></td>
                             <td>

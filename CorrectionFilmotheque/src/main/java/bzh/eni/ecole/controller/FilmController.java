@@ -3,6 +3,7 @@ package bzh.eni.ecole.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,21 +19,22 @@ import jakarta.annotation.PostConstruct;
 public class FilmController {
 
 	@Autowired
+	@Qualifier("JPA")
 	private FilmService filmService;
 	
-	@PostConstruct
-	public void init() {
-		System.out.println("*****************  Init ******************");
-		Genre g = new Genre(1L, "Action");
-		Participant acteur = new Participant(1L, "Richard", "Attenborough");
-		Participant realisateur = new Participant(1L,"Steven","Spielberg");
-		
-		Film f = new Film(1L, "Jurassic Park", 1993, 128, 
-				"Le film raconte l'histoire d'un milliardaire et son équipe de généticiens parvenant"
-				+ " à ramener à la vie des dinosaures grâce au clonage.", g, realisateur, List.of(acteur), 
-				null);
-		filmService.saveFilm(f);		
-	}
+//	@PostConstruct
+//	public void init() {
+//		System.out.println("*****************  Init ******************");
+//		Genre g = new Genre(1L, "Action");
+//		Participant acteur = new Participant(1L, "Richard", "Attenborough");
+//		Participant realisateur = new Participant(1L,"Steven","Spielberg");
+//		
+//		Film f = new Film(1L, "Jurassic Park", 1993, 128, 
+//				"Le film raconte l'histoire d'un milliardaire et son équipe de généticiens parvenant"
+//				+ " à ramener à la vie des dinosaures grâce au clonage.", g, realisateur, List.of(acteur), 
+//				null);
+//		filmService.saveFilm(f);		
+//	}
 	
 	@GetMapping("/films/{id:[0-9]+}")
 	public String details(@PathVariable Long id,Model model) {

@@ -9,7 +9,7 @@ import bzh.eni.ecole.bo.Film;
 import bzh.eni.ecole.bo.Genre;
 import bzh.eni.ecole.bo.Participant;
 
-@Service
+@Service("MOCK")
 public class FilmServiceMock implements FilmService {
 
 	List<Film> lstFilms = new ArrayList<Film>();
