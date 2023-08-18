@@ -20,7 +20,7 @@ public class UtilisateurService implements UserDetailsService {
 		System.out.println("************************");
 		Utilisateur adel = new Utilisateur(1, "adel", 
 				passwordEncoder.encode("123456"), 
-				"adel@gmail.com", List.of("ROLE_USER","ROLE_ADMIN"));
+				"adel@gmail.com", List.of("ROLE_ADMIN"));
 		return adel;
 	}
 

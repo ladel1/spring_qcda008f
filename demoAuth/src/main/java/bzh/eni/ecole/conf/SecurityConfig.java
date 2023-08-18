@@ -2,6 +2,8 @@ package bzh.eni.ecole.conf;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.access.hierarchicalroles.RoleHierarchy;
+import org.springframework.security.access.hierarchicalroles.RoleHierarchyImpl;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -23,7 +25,7 @@ public class SecurityConfig {
 		
 		return http.authorizeHttpRequests(auth->{
 					auth.requestMatchers("/prive").authenticated();
-					auth.requestMatchers("/admin").hasRole("ADMIN");// ROLE_ADMIN
+					auth.requestMatchers("/admin").hasRole("USER");// ROLE_ADMIN
 					auth.anyRequest().permitAll();
 				})
 				.formLogin(Customizer.withDefaults())						
@@ -51,5 +53,6 @@ public class SecurityConfig {
 	public PasswordEncoder paswordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
+
 	
 }
